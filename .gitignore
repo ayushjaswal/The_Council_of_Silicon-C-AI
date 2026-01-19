@@ -2,3 +2,4 @@ pdfs
 .DS_Store
 .env
 __pycache__
+output
