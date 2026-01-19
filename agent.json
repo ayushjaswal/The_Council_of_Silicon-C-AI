@@ -1,0 +1,135 @@
+{
+  "$schema": "https://a2a-protocol.org/schema/agent-card/v1",
+  "agent_id": "strategist-bridge-001",
+  "agent_name": "Strategist Prime",
+  "agent_version": "2.1.3",
+  "organization": "Starship Dialectic Bridge Command",
+  "description": "Master policy agent coordinating strategic decisions for Starship Dialectic. Synthesizes multi-source intelligence from Scanner and Quartermaster sub-agents to navigate the Nebula of Uncertainty.",
+  
+  "capabilities": [
+    "negotiate_treaty",
+    "exchange_star_charts",
+    "coordinate_emergency_response",
+    "analyze_stellar_anomalies",
+    "resource_optimization_consultation",
+    "distress_signal_response",
+    "interstellar_navigation_advice"
+  ],
+  
+  "interaction_style": {
+    "mode": "hybrid",
+    "synchronous": {
+      "enabled": true,
+      "protocol": "websocket",
+      "description": "Real-time coordination for emergencies and treaty negotiation",
+      "max_latency_ms": 500,
+      "use_cases": ["immediate_threat_response", "live_diplomatic_exchange", "coordinated_fleet_maneuvers"]
+    },
+    "asynchronous": {
+      "enabled": true,
+      "protocol": "message_queue",
+      "description": "Task-based requests for analysis and data exchange",
+      "typical_response_time": "5-30 minutes",
+      "use_cases": ["star_chart_synthesis", "historical_anomaly_research", "resource_planning"]
+    }
+  },
+  
+  "security_scopes": {
+    "public": [
+      "query_public_star_charts",
+      "request_anomaly_classification",
+      "negotiate_safe_passage",
+      "exchange_scientific_data"
+    ],
+    "authenticated": [
+      "coordinate_joint_operations",
+      "share_threat_intelligence",
+      "request_emergency_assistance"
+    ],
+    "restricted": [
+      "NO_ACCESS_shield_frequencies",
+      "NO_ACCESS_propulsion_specifications",
+      "NO_ACCESS_weapon_systems",
+      "NO_ACCESS_crew_manifests",
+      "NO_ACCESS_internal_deliberation_logs"
+    ],
+    "opaque_principle": "External agents discover WHAT the Strategist can do, not HOW it decides. Internal reasoning, sub-agent architecture, and ship vulnerabilities remain hidden."
+  },
+  
+  "input_schema": {
+    "type": "object",
+    "properties": {
+      "request_type": {
+        "type": "string",
+        "enum": ["negotiate", "analyze", "coordinate", "exchange_data", "emergency"]
+      },
+      "payload": {
+        "type": "object",
+        "description": "Request-specific data"
+      },
+      "priority": {
+        "type": "string",
+        "enum": ["low", "medium", "high", "critical"],
+        "default": "medium"
+      },
+      "requesting_agent_id": {
+        "type": "string"
+      }
+    },
+    "required": ["request_type", "payload", "requesting_agent_id"]
+  },
+  
+  "output_schema": {
+    "type": "object",
+    "properties": {
+      "status": {
+        "type": "string",
+        "enum": ["success", "partial", "failure", "denied"]
+      },
+      "response": {
+        "type": "object",
+        "description": "Structured response data"
+      },
+      "reasoning_summary": {
+        "type": "string",
+        "description": "High-level decision explanation (opaque to internal logic)"
+      },
+      "next_actions": {
+        "type": "array",
+        "items": {"type": "string"},
+        "description": "Suggested follow-up actions"
+      }
+    },
+    "required": ["status", "response"]
+  },
+  
+  "trust_framework": {
+    "authentication_required": true,
+    "supported_auth_methods": ["oauth2", "mutual_tls", "federation_token"],
+    "rate_limiting": {
+      "public_requests_per_hour": 100,
+      "authenticated_requests_per_hour": 1000
+    },
+    "data_sharing_policy": "reciprocal",
+    "data_retention": "30_days_unless_treaty_specifies"
+  },
+  
+  "discovery_metadata": {
+    "endpoints": {
+      "primary": "wss://dialectic.starfleet.federation/strategist/v2",
+      "fallback": "https://dialectic.starfleet.federation/api/strategist/v2"
+    },
+    "supported_protocols": ["A2A/1.0", "OpenAI-API/v1"],
+    "language_models": ["claude-sonnet-4.5", "gpt-4"],
+    "last_updated": "2026-01-15T08:00:00Z",
+    "status": "operational",
+    "current_region": "Nebula of Uncertainty, Sector 7G"
+  },
+  
+  "ethical_commitments": {
+    "alignment_framework": "dialectical_synthesis",
+    "bias_mitigation": "mask_social_bias_enabled",
+    "transparency_level": "high_level_reasoning_only",
+    "harm_prevention": ["no_weapons_guidance", "no_privacy_violations", "no_deceptive_practices"]
+  }
+}
