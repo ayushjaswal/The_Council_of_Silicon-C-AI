@@ -1,0 +1,25 @@
+{
+  "protocol": "AP2",
+  "meta": {
+    "version": "2.0",
+    "timestamp": "2026-01-26T09:00:00Z"
+  },
+  "mandate": {
+    "id": "mandate_dialectic_001",
+    "type": "intent_mandate",
+    "scope": "purchase.fuel",
+    "signatories": {
+      "authorized_by": "Captain of Starship Dialectic",
+      "grantee": "AURA_Agent_Core"
+    },
+    "constraints": {
+      "currency": "CREDITS",
+      "max_price": 200,
+      "min_quantity": 100,
+      "item_restriction": "Kyber Fuel Cells",
+      "merchant_whitelist": ["The Nexus"],
+      "expiration_time": "2026-01-26T23:59:59Z"
+    }
+  },
+  "digital_signature": "Place holder"
+}
